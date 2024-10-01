@@ -8,18 +8,23 @@ package exception;
  *
  * @author Careen Emilza
  */
-public class CareenException extends Exception {
+public class CareenException extends ArithmeticException {
 
     public CareenException(String s) {
         super(s);
     }
+    public static void Trycatch(){
+        int pembilang = 10;
+        int penyebut = 0;
 
-    public static void main(String args[]) {
         try {
-            throw new CareenException("Salah ya");
-        } catch (CareenException ex) {
-            System.out.println("Tidak bisa " + String.valueOf(ex));
-
+            int hasil = pembilang / penyebut;
+            System.out.println("Hasil bagi: " + hasil);
+        } catch (ArithmeticException e) {
+            System.out.println("Terjadi kesalahan: Pembagian dengan nol tidak diperbolehkan.");
         }
+    }
+    public static void main(String args[]) {
+       CareenException.Trycatch();
     }
 }
