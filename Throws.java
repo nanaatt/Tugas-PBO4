@@ -8,16 +8,17 @@ package throwss;
  *
  * @author Careen Emilza
  */
-public class Throws {
-    
-    public static int[] createArray(int size) throws NegativeArraySizeException {
-        if (size < 0) {
-            throw new NegativeArraySizeException("Ukuran array tidak bisa negatif: " + size);
-        }
-        return new int[size];
+
+public class Throws {public static int bagi(int a, int b) throws ArithmeticException {
+        return a / b;
     }
-    
-    public static void main(String[] args){
-        createArray(-8);
+
+    public static void main(String[] args) {
+        try {
+            int hasil = bagi(10, 0);
+            System.out.println("Hasil bagi: " + hasil);
+        } catch (ArithmeticException e) {
+            System.out.println("Terjadi kesalahan: Pembagian dengan nol tidak diperbolehkan.");
+        }
     }
 }
